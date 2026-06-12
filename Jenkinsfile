@@ -12,10 +12,12 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                    cd myapp
-                    python3 -m venv venv
-                    . venv/bin/activate
-                    pip install -r requirements.txt
+                    
+                    apt-get update && apt-get install -y python3-venv
+            cd myapp
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
                 '''
             }
         }
